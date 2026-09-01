@@ -287,11 +287,11 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onSelectCourseToManage }
                 Perfil de Administrador General
               </span>
               <h2 className="text-xl font-bold text-slate-900 tracking-tight">
-                Gestión de Instituciones, Cursos & Apoderados Administradores
+                Gestión de Instituciones, Grupos & Usuarios Administradores
               </h2>
             </div>
             <p className="text-xs sm:text-sm text-slate-500 mt-1">
-              Crea los colegios, niveles de cursos y administra o elimina usuarios de tesorería del sistema.
+              Crea instituciones, organizaciones, niveles o ramas y administra o elimina cuentas de tesorería del sistema.
             </p>
           </div>
         </div>
@@ -324,7 +324,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onSelectCourseToManage }
                 : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
             }`}
           >
-            🏫 Instituciones / Colegios ({institutions.length})
+            🏫 Instituciones / Organizaciones ({institutions.length})
           </button>
           <button
             id="admin-tab-courses"
@@ -335,7 +335,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onSelectCourseToManage }
                 : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
             }`}
           >
-            📚 Cursos y Niveles ({courses.length})
+            📚 Grupos, Ramas & Cursos ({courses.length})
           </button>
           <button
             id="admin-tab-treasurers"
@@ -346,7 +346,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({ onSelectCourseToManage }
                 : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
             }`}
           >
-            <span>👤 Apoderados Tesoreros & Usuarios ({userAccounts.length})</span>
+            <span>👤 Tesoreros & Usuarios ({userAccounts.length})</span>
           </button>
         </div>
       </div>

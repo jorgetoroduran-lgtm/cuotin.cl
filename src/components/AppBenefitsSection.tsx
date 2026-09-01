@@ -93,11 +93,11 @@ export const AppBenefitsSection: React.FC<AppBenefitsSectionProps> = ({
       roleAudience: 'TESORERO_TITULAR',
       roleBadgeText: 'Perfil Tesorero: Registro de Pagos',
       description:
-        'Visualiza la nómina completa del curso en una cuadrícula interactiva. El tesorero puede marcar al instante los pagos con fecha, método (transferencia o efectivo) y notas adicionales.',
+        'Visualiza la nómina completa de miembros, alumnos o socios en una cuadrícula interactiva. El tesorero puede marcar al instante los pagos con fecha, método (transferencia o efectivo) y notas adicionales.',
       keyHighlights: [
         'Registro instantáneo de cuotas con cálculo automático de totales.',
         'Semáforo visual: verde para pagado, rojo para pendiente de pago.',
-        'Historial individual por cada alumno con fecha y comprobante.',
+        'Historial individual por cada integrante con fecha y comprobante.',
       ],
       benefitsList: [
         {
@@ -108,29 +108,29 @@ export const AppBenefitsSection: React.FC<AppBenefitsSectionProps> = ({
         {
           icon: '📊',
           title: 'Cuentas claras al segundo',
-          desc: 'Sabrás exactamente cuánto dinero se ha recaudado y qué apoderados faltan por pagar.',
+          desc: 'Sabrás exactamente cuánto dinero se ha recaudado y qué socios o apoderados faltan por pagar.',
         },
         {
           icon: '📥',
           title: 'Carga masiva desde Excel',
-          desc: 'Sube la lista de alumnos al inicio de año en 5 segundos con un archivo Excel estándar.',
+          desc: 'Sube la lista de integrantes o alumnos en 5 segundos con un archivo Excel estándar.',
         },
       ],
       transparencyTip:
-        'Permite a la directiva y revisores de cuentas consultar el avance de pago sin alterar los registros.',
+        'Permite a la directiva, comisiones y revisores de cuentas consultar el avance de pago sin alterar los registros.',
     },
     {
       id: 'observer',
       title: 'Modo Observador / Solo Visualización',
       shortTitle: '2. Modo Transparencia',
-      subtitle: 'Acceso seguro para apoderados y directiva sin riesgo de modificación',
-      badge: 'Transparencia Total del Curso',
+      subtitle: 'Acceso seguro para directivas, socios y familias sin riesgo de modificación',
+      badge: 'Transparencia Total',
       badgeColor: 'bg-indigo-500/20 text-indigo-300 border-indigo-400/30',
       imageSrc: observerImg,
       fictionalData: {
         course: '3° Básico A — Escuela Los Robles',
         monthlyFee: '$5.000 CLP fijada en asamblea',
-        studentsCount: 'Revisión en Vivo: 34 Alumnos',
+        studentsCount: 'Revisión en Vivo: 34 Integrantes',
         collected: '$1.450.000 CLP auditados',
         balance: '$745.000 CLP disponible',
         pendingDebt: 'Cero discrepancias contables',
@@ -138,11 +138,11 @@ export const AppBenefitsSection: React.FC<AppBenefitsSectionProps> = ({
       roleAudience: 'TESORERO_OBSERVADOR',
       roleBadgeText: 'Perfil Observador: Solo Lectura (Auditoría)',
       description:
-        'Crea cuentas con perfil de "Solo Lectura" para el presidente de curso, el revisor de cuentas o cualquier apoderado. Pueden entrar y revisar todos los números, balances y boletas en tiempo real sin temor a que borren o modifiquen datos por error.',
+        'Crea cuentas con perfil de "Solo Lectura" para presidentes, revisores de cuentas o cualquier miembro. Pueden entrar y revisar todos los números, balances y boletas en tiempo real sin temor a que borren o modifiquen datos por error.',
       keyHighlights: [
-        'Acceso 100% transparente a la información financiera del curso.',
+        'Acceso 100% transparente a la información financiera de la organización.',
         'Protección total: botones de edición y borrado desactivados para observadores.',
-        'Genera absoluta confianza entre la directiva, el tesorero y toda la asamblea de apoderados.',
+        'Genera absoluta confianza entre directiva, tesoreros y toda la asamblea.',
       ],
       benefitsList: [
         {
@@ -158,11 +158,11 @@ export const AppBenefitsSection: React.FC<AppBenefitsSectionProps> = ({
         {
           icon: '🤝',
           title: 'Traspaso de mando sin fricción',
-          desc: 'Al cambiar la directiva o tesorería a fin de año, el historial completo permanece disponible.',
+          desc: 'Al renovar directiva o tesorería, el historial contable completo permanece disponible.',
         },
       ],
       transparencyTip:
-        'La mejor herramienta para asambleas escolares: proyecta la app en vivo o comparte el usuario observador.',
+        'La mejor herramienta para asambleas y reuniones: proyecta la app en vivo o comparte el usuario observador.',
     },
     {
       id: 'expenses',

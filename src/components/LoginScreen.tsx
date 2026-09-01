@@ -29,6 +29,7 @@ import { useApp } from '../context/AppContext';
 import { UserAccount, UserRole } from '../types';
 import { AccessRequestModal } from './AccessRequestModal';
 import { AppBenefitsSection } from './AppBenefitsSection';
+import { DidacticUseCasesShowcase } from './DidacticUseCasesShowcase';
 import { FloatingWhatsAppButton } from './FloatingWhatsAppButton';
 import { PasswordRecoveryModal } from './PasswordRecoveryModal';
 
@@ -504,6 +505,11 @@ export const LoginScreen: React.FC = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        {/* 🌟 8 Institutional Use Cases Didactic Showcase */}
+        <div className="w-full max-w-5xl">
+          <DidacticUseCasesShowcase onOpenAccessRequest={() => setShowAccessRequestModal(true)} />
         </div>
 
         {/* 🌟 Dedicated Illustrated Benefits Section near Login */}

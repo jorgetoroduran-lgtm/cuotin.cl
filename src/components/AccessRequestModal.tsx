@@ -372,10 +372,37 @@ export const AccessRequestModal: React.FC<AccessRequestModalProps> = ({
                   </div>
                 </div>
 
+                {/* Tipo de Organización / Actividad */}
+                <div className="sm:col-span-2">
+                  <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
+                    Tipo de Actividad / Institución
+                  </label>
+                  <select
+                    id="select-req-org-type"
+                    value={institutionName.startsWith('[') ? institutionName.split('] ')[0] + ']' : ''}
+                    onChange={(e) => {
+                      const prefix = e.target.value;
+                      const rawName = institutionName.replace(/^\[.*?\]\s*/, '');
+                      setInstitutionName(prefix ? `${prefix} ${rawName}`.trim() : rawName);
+                    }}
+                    className="w-full px-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm font-medium text-slate-900 focus:bg-white focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 mb-2"
+                  >
+                    <option value="">-- Selecciona tu sector o actividad --</option>
+                    <option value="[Colegio / Escuela]">🏫 Colegios y Escuelas</option>
+                    <option value="[Institución / Academia]">🏛️ Instituciones / Academias</option>
+                    <option value="[Club Deportivo]">🏆 Clubes Deportivos</option>
+                    <option value="[Condominio / Comunidad]">🏢 Condominios / Comunidades</option>
+                    <option value="[Fundación / ONG]">❤️ Fundaciones / ONG</option>
+                    <option value="[Club Social]">👥 Clubes Sociales / Adulto Mayor</option>
+                    <option value="[Asociación / Gremio]">💼 Asociaciones / Agrupaciones</option>
+                    <option value="[Centro de Capacitación]">📚 Centros de Capacitación / OTEC</option>
+                  </select>
+                </div>
+
                 {/* Colegio / Institución / Organización */}
                 <div>
                   <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                    Institución, Colegio u Organización
+                    Nombre de la Institución u Organización
                   </label>
                   <div className="relative">
                     <Building2 className="w-4 h-4 text-slate-400 absolute left-3 top-3 pointer-events-none" />
@@ -384,7 +411,7 @@ export const AccessRequestModal: React.FC<AccessRequestModalProps> = ({
                       type="text"
                       value={institutionName}
                       onChange={(e) => setInstitutionName(e.target.value)}
-                      placeholder="Ej: Colegio San Agustín, Club Deportivo..."
+                      placeholder="Ej: Escuela Los Robles, Club Unión Cordillera..."
                       className="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm font-medium text-slate-900 focus:bg-white focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500"
                     />
                   </div>
@@ -393,7 +420,7 @@ export const AccessRequestModal: React.FC<AccessRequestModalProps> = ({
                 {/* Curso / Grupo / Rama */}
                 <div>
                   <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">
-                    Curso, Nivel o Rama
+                    Grupo, Curso, Rama o Nivel
                   </label>
                   <div className="relative">
                     <GraduationCap className="w-4 h-4 text-slate-400 absolute left-3 top-3 pointer-events-none" />
@@ -402,7 +429,7 @@ export const AccessRequestModal: React.FC<AccessRequestModalProps> = ({
                       type="text"
                       value={courseName}
                       onChange={(e) => setCourseName(e.target.value)}
-                      placeholder="Ej: 5° Básico A, Serie Senior..."
+                      placeholder="Ej: 3° Básico A, Serie Senior, Taller Nivel 1..."
                       className="w-full pl-9 pr-3 py-2 bg-slate-50 border border-slate-300 rounded-xl text-xs sm:text-sm font-medium text-slate-900 focus:bg-white focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500"
                     />
                   </div>

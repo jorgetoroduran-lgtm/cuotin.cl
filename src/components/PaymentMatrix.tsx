@@ -299,10 +299,10 @@ export const PaymentMatrix: React.FC<PaymentMatrixProps> = ({
           </div>
         </div>
 
-        {/* KPI 4: Participación de Apoderados */}
+        {/* KPI 4: Participación de Integrantes / Socios */}
         <div className="bg-white p-5 rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between">
           <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider">
-            Apoderados al Día
+            Integrantes / Socios al Día
           </p>
           <div className="mt-2">
             <h3 className="text-2xl font-black text-slate-900 font-mono tracking-tight">

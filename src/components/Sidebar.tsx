@@ -129,7 +129,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               <div className="flex items-center justify-between text-[10px] font-bold uppercase tracking-wider text-emerald-400">
                 <span className="flex items-center gap-1">
                   <GraduationCap className="w-3.5 h-3.5" />
-                  Tu Curso Asignado
+                  Tu Grupo Asignado
                 </span>
                 <span className="flex items-center gap-0.5 text-slate-400">
                   <Lock className="w-3 h-3" />
@@ -137,7 +137,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 </span>
               </div>
               <div className="font-bold text-white text-xs truncate">
-                {currentCourse?.name || 'Curso Asignado'}
+                {currentCourse?.name || 'Grupo / Curso Asignado'}
               </div>
               <div className="text-[11px] text-slate-400 truncate">
                 {currentInstitution?.name}
@@ -154,7 +154,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1 flex items-center justify-between">
                   <span className="flex items-center gap-1">
                     <Building2 className="w-3 h-3 text-slate-400" />
-                    Institución / Colegio
+                    Institución / Organización
                   </span>
                   <span className="text-[9px] text-blue-400 font-semibold uppercase">Global</span>
                 </label>
@@ -182,7 +182,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
               <div>
                 <label className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block mb-1 flex items-center gap-1">
                   <GraduationCap className="w-3 h-3 text-blue-400" />
-                  Curso Activo
+                  Grupo / Rama / Curso Activo
                 </label>
                 <select
                   id="sidebar-select-course"
@@ -346,15 +346,15 @@ export const Sidebar: React.FC<SidebarProps> = ({
             <div className="pt-3 pb-1">
               <div className="px-3 py-2 bg-slate-950/40 rounded-lg border border-slate-800/60 text-[11px] text-slate-500 flex items-center gap-2">
                 <Shield className="w-3.5 h-3.5 text-slate-600 shrink-0" />
-                <span>Gestión de colegios reservada al Admin General</span>
+                <span>Gestión institucional reservada al Admin General</span>
               </div>
             </div>
           )}
 
-          {/* Tesorería del Curso Actions */}
+          {/* Herramientas de Tesorería Actions */}
           <div className="pt-3 space-y-1.5 border-t border-slate-800/80 mt-2">
             <div className="px-3 py-1 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
-              Herramientas de Curso
+              Herramientas de Tesorería
             </div>
 
             {/* Manage Treasurers & Read-Only Observer */}
