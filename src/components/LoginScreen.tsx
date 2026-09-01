@@ -4,6 +4,7 @@ import {
   ArrowRight,
   BadgeCheck,
   Building2,
+  Calendar,
   CheckCircle2,
   ChevronRight,
   Eye,
@@ -79,6 +80,15 @@ export const LoginScreen: React.FC = () => {
     }, 300);
   };
 
+  // Format today's date in Chilean Spanish
+  const todayRaw = new Intl.DateTimeFormat('es-CL', {
+    weekday: 'short',
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  }).format(new Date());
+  const todayFormatted = todayRaw.charAt(0).toUpperCase() + todayRaw.slice(1);
+
   return (
     <div className="min-h-screen bg-slate-100 flex flex-col justify-between text-slate-800">
       {/* Top Brand Bar */}
@@ -104,6 +114,16 @@ export const LoginScreen: React.FC = () => {
           </div>
 
           <div className="flex items-center gap-2">
+            {/* Today's Date Banner Badge */}
+            <div
+              id="login-today-date-badge"
+              className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800/90 text-slate-300 text-xs font-medium border border-slate-700 shadow-2xs"
+              title="Fecha del día"
+            >
+              <Calendar className="w-3.5 h-3.5 text-blue-400" />
+              <span>{todayFormatted}</span>
+            </div>
+
             <button
               type="button"
               id="btn-scroll-to-benefits"

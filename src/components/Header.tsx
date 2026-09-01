@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {
   Building2,
+  Calendar,
   CheckCircle2,
   ChevronDown,
   Cloud,
@@ -80,6 +81,15 @@ export const Header: React.FC<HeaderProps> = ({
   const totalSpent = courseExpenses.reduce((acc, e) => acc + e.amount, 0);
   const balance = totalCollected - totalSpent;
 
+  // Format today's date in Chilean Spanish
+  const todayRaw = new Intl.DateTimeFormat('es-CL', {
+    weekday: 'short',
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  }).format(new Date());
+  const todayFormatted = todayRaw.charAt(0).toUpperCase() + todayRaw.slice(1);
+
   return (
     <header
       id="main-topbar"
@@ -139,6 +149,16 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Right Controls */}
       <div className="flex items-center gap-2 sm:gap-3">
+        {/* Today's Date Banner Badge */}
+        <div
+          id="header-today-date-badge"
+          className="hidden md:flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg bg-slate-50 text-slate-700 text-xs font-medium border border-slate-200 shadow-2xs"
+          title="Fecha de hoy"
+        >
+          <Calendar className="w-3.5 h-3.5 text-blue-600" />
+          <span>{todayFormatted}</span>
+        </div>
+
         {/* Cloud Sync Status & Manual Save Button */}
         <div className="flex items-center">
           <button
