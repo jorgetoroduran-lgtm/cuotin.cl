@@ -20,6 +20,7 @@ import {
   Lock,
   Mail,
   Maximize2,
+  MessageCircle,
   Receipt,
   RotateCcw,
   Shield,
@@ -635,19 +636,32 @@ export const AppBenefitsSection: React.FC<AppBenefitsSectionProps> = ({
                 <span className="font-bold text-slate-900 block">
                   Planes de Arriendo: $3.490 CLP / Mes • Promoción Anual: $29.990 CLP / Año
                 </span>
-                <span>Incluye cuentas de Tesorero y usuarios de Solo Lectura ilimitados. • <strong className="text-blue-700">Consultas a: <a href="mailto:contacto@cuotin.cl" className="underline hover:text-blue-900">contacto@cuotin.cl</a></strong></span>
+                <span>Incluye cuentas de Tesorero y usuarios de Solo Lectura ilimitados. • <strong className="text-emerald-700">WhatsApp: <a href="https://wa.me/56942788044?text=Hola%2C%20quisiera%20consultar%20por%20la%20plataforma%20Cuotin" target="_blank" rel="noopener noreferrer" className="underline hover:text-emerald-900 font-mono">+569 4278 8044</a></strong></span>
               </div>
             </div>
 
-            <button
-              type="button"
-              id="btn-request-access-from-benefits"
-              onClick={onOpenAccessRequest}
-              className="px-5 py-2.5 bg-orange-600 hover:bg-orange-500 text-white font-bold rounded-xl text-xs sm:text-sm shadow-md transition-all flex items-center gap-2 shrink-0 cursor-pointer"
-            >
-              <Zap className="w-4 h-4" />
-              <span>Solicitar Cuenta de Tesorería</span>
-            </button>
+            <div className="flex flex-wrap items-center gap-2 shrink-0">
+              <a
+                id="btn-whatsapp-benefits-cta"
+                href="https://wa.me/56942788044?text=Hola%2C%20quisiera%20solicitar%20informaci%C3%B3n%20para%20activar%20Cuotin%20en%20mi%20instituci%C3%B3n"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl text-xs sm:text-sm shadow-md transition-all flex items-center gap-2 cursor-pointer"
+              >
+                <MessageCircle className="w-4 h-4" />
+                <span>WhatsApp Soporte</span>
+              </a>
+
+              <button
+                type="button"
+                id="btn-request-access-from-benefits"
+                onClick={onOpenAccessRequest}
+                className="px-5 py-2.5 bg-orange-600 hover:bg-orange-500 text-white font-bold rounded-xl text-xs sm:text-sm shadow-md transition-all flex items-center gap-2 cursor-pointer"
+              >
+                <Zap className="w-4 h-4" />
+                <span>Solicitar Cuenta</span>
+              </button>
+            </div>
           </div>
         )}
       </div>

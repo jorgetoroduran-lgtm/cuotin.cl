@@ -29,6 +29,7 @@ import { useApp } from '../context/AppContext';
 import { UserAccount, UserRole } from '../types';
 import { AccessRequestModal } from './AccessRequestModal';
 import { AppBenefitsSection } from './AppBenefitsSection';
+import { FloatingWhatsAppButton } from './FloatingWhatsAppButton';
 import { PasswordRecoveryModal } from './PasswordRecoveryModal';
 
 export const LoginScreen: React.FC = () => {
@@ -636,8 +637,8 @@ export const LoginScreen: React.FC = () => {
       {/* Footer */}
       <footer className="bg-slate-900 text-slate-400 py-6 px-4 border-t border-slate-800 text-center text-xs">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p>© 2026 Cuotin Escolar — Sistema de Recaudación de Cuotas y Rendición de Cuentas.</p>
-          <div className="flex items-center gap-4 text-slate-400">
+          <p>© 2026 Cuotin — Tesorería Digital para Instituciones y Organizaciones.</p>
+          <div className="flex flex-wrap items-center justify-center gap-4 text-slate-400">
             <button
               type="button"
               id="btn-footer-open-privileges"
@@ -652,11 +653,26 @@ export const LoginScreen: React.FC = () => {
               onClick={() => setShowAccessRequestModal(true)}
               className="hover:text-white underline text-orange-400 cursor-pointer"
             >
-              Solicitar Cuenta ($3.990 Mes / $34.990 Año)
+              Solicitar Cuenta
             </button>
+            <a
+              id="link-footer-whatsapp-contact"
+              href="https://wa.me/56942788044?text=Hola%20Cuotin%2C%20quisiera%20consultar%20por%20la%20plataforma%20de%20tesorer%C3%ADa%20digital."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-emerald-400 text-emerald-500 font-semibold inline-flex items-center gap-1 cursor-pointer"
+            >
+              <span>WhatsApp: +56 9 4278 8044</span>
+            </a>
           </div>
         </div>
       </footer>
+
+      {/* 🟢 Floating WhatsApp Contact Button */}
+      <FloatingWhatsAppButton
+        phoneNumber="56942788044"
+        defaultMessage="¡Hola! Me gustaría solicitar información o activar una cuenta de tesorería digital en Cuotin."
+      />
     </div>
   );
 };

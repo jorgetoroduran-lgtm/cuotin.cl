@@ -165,7 +165,18 @@ export const AccessRequestModal: React.FC<AccessRequestModalProps> = ({
               </div>
 
               {/* Direct Send Action Buttons */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-2">
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 pt-2">
+                <a
+                  href={`https://wa.me/56942788044?text=${encodeURIComponent(emailBody)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 py-2.5 px-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-xs transition-colors cursor-pointer"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Enviar por WhatsApp</span>
+                  <ExternalLink className="w-3.5 h-3.5 opacity-80" />
+                </a>
+
                 <a
                   href={gmailComposeUrl}
                   target="_blank"

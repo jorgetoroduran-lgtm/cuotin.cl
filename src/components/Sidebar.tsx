@@ -13,6 +13,7 @@ import {
   LayoutDashboard,
   Lock,
   LogOut,
+  MessageCircle,
   Receipt,
   RotateCcw,
   Shield,
@@ -406,6 +407,23 @@ export const Sidebar: React.FC<SidebarProps> = ({
                 {currentCourse?.bankInfo ? 'Datos de Transferencia' : '+ Configurar Cuenta'}
               </span>
             </button>
+          </div>
+
+          {/* Direct WhatsApp Support */}
+          <div className="mt-3">
+            <a
+              id="sidebar-btn-whatsapp-support"
+              href="https://wa.me/56942788044?text=Hola%20Cuotin%2C%20necesito%20soporte%20o%20tengo%20una%20consulta%20sobre%20mi%20cuenta."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full flex items-center justify-between px-3 py-2 text-xs font-semibold text-emerald-300 hover:text-emerald-200 bg-emerald-950/40 hover:bg-emerald-900/50 border border-emerald-800/50 rounded-lg transition-colors"
+            >
+              <div className="flex items-center gap-2">
+                <MessageCircle className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span>Soporte WhatsApp</span>
+              </div>
+              <span className="text-[10px] text-emerald-400/90 font-mono">+569 4278 8044</span>
+            </a>
           </div>
 
           {/* Read Only Status Notice */}
