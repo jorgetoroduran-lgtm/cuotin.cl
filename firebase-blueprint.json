@@ -1,0 +1,147 @@
+{
+  "entities": {
+    "Institution": {
+      "title": "Institution",
+      "description": "Educational institution or school",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "code": { "type": "string" },
+        "address": { "type": "string" },
+        "rbd": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" }
+      },
+      "required": ["id", "name"]
+    },
+    "Course": {
+      "title": "Course",
+      "description": "School class or grade level",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "institutionId": { "type": "string" },
+        "name": { "type": "string" },
+        "grade": { "type": "string" },
+        "section": { "type": "string" },
+        "year": { "type": "number" },
+        "annualFee": { "type": "number" },
+        "monthlyFee": { "type": "number" },
+        "activeMonths": { "type": "array" },
+        "customMonthlyFees": { "type": "object" },
+        "treasurer": { "type": "object" },
+        "treasurers": { "type": "array" },
+        "bankInfo": { "type": "object" }
+      },
+      "required": ["id", "institutionId", "name", "year"]
+    },
+    "Student": {
+      "title": "Student",
+      "description": "Student enrolled in a course with payments",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "courseId": { "type": "string" },
+        "studentFullName": { "type": "string" },
+        "fullName": { "type": "string" },
+        "studentRut": { "type": "string" },
+        "rut": { "type": "string" },
+        "parentFullName": { "type": "string" },
+        "guardianName": { "type": "string" },
+        "parentPhone": { "type": "string" },
+        "parentEmail": { "type": "string" },
+        "payments": { "type": "object" }
+      },
+      "required": ["id", "courseId", "payments"]
+    },
+    "Expense": {
+      "title": "Expense",
+      "description": "Expenditure or invoice item for a course",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "courseId": { "type": "string" },
+        "date": { "type": "string" },
+        "concept": { "type": "string" },
+        "category": { "type": "string" },
+        "amount": { "type": "number" },
+        "responsible": { "type": "string" },
+        "receiptType": { "type": "string" },
+        "receiptNumber": { "type": "string" },
+        "registeredBy": { "type": "string" },
+        "notes": { "type": "string" },
+        "attachment": { "type": "object" },
+        "paymentStatus": { "type": "string" },
+        "paidAmount": { "type": "number" },
+        "debtAmount": { "type": "number" },
+        "creditorName": { "type": "string" },
+        "creditorType": { "type": "string" },
+        "dueDate": { "type": "string" },
+        "abonos": { "type": "array" }
+      },
+      "required": ["id", "courseId", "date", "concept", "amount"]
+    },
+    "UserAccount": {
+      "title": "UserAccount",
+      "description": "Application user or treasurer account",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "email": { "type": "string" },
+        "name": { "type": "string" },
+        "role": { "type": "string" },
+        "password": { "type": "string" },
+        "assignedCourseId": { "type": "string" },
+        "assignedInstitutionId": { "type": "string" },
+        "requiresPasswordChange": { "type": "boolean" },
+        "active": { "type": "boolean" }
+      },
+      "required": ["id", "email", "name", "role"]
+    },
+    "AccessRequest": {
+      "title": "AccessRequest",
+      "description": "User registration or access request",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "fullName": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "requestedRole": { "type": "string" },
+        "institutionId": { "type": "string" },
+        "courseId": { "type": "string" },
+        "courseName": { "type": "string" },
+        "status": { "type": "string" },
+        "requestDate": { "type": "string" }
+      },
+      "required": ["id", "fullName", "email", "status"]
+    }
+  },
+  "firestore": {
+    "/institutions/{institutionId}": {
+      "schema": "#/entities/Institution",
+      "description": "Stores educational institutions"
+    },
+    "/courses/{courseId}": {
+      "schema": "#/entities/Course",
+      "description": "Stores courses and grade levels with fee config"
+    },
+    "/students/{studentId}": {
+      "schema": "#/entities/Student",
+      "description": "Stores enrolled students and payment statuses"
+    },
+    "/expenses/{expenseId}": {
+      "schema": "#/entities/Expense",
+      "description": "Stores course expense records and receipts"
+    },
+    "/accounts/{accountId}": {
+      "schema": "#/entities/UserAccount",
+      "description": "Stores user profiles and credentials"
+    },
+    "/accessRequests/{requestId}": {
+      "schema": "#/entities/AccessRequest",
+      "description": "Stores pending and reviewed access requests"
+    }
+  }
+}

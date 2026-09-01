@@ -1,0 +1,8 @@
+{
+  "name": "Cuotin - Tesorería Digital para Instituciones",
+  "description": "Cuotin: Plataforma de tesorería digital para instituciones, colegios, cursos, clubes y organizaciones. Control de cuotas periódicas, registro y rendición de gastos con comprobantes, balances y reportes PDF.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

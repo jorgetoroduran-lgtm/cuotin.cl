@@ -1,0 +1,99 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isValidId(id) {
+      return id is string && id.size() > 0 && id.size() <= 128;
+    }
+
+    function isValidCourse(data) {
+      return data.id is string &&
+             data.institutionId is string &&
+             data.name is string &&
+             data.name.size() <= 150;
+    }
+
+    function isValidStudent(data) {
+      return data.id is string &&
+             data.courseId is string &&
+             (
+               (data.keys().hasAny(['studentFullName']) && data.studentFullName is string) ||
+               (data.keys().hasAny(['fullName']) && data.fullName is string)
+             );
+    }
+
+    function isValidExpense(data) {
+      return data.id is string &&
+             data.courseId is string &&
+             data.concept is string &&
+             data.concept.size() <= 300 &&
+             data.amount is number;
+    }
+
+    function isValidInstitution(data) {
+      return data.id is string &&
+             data.name is string &&
+             data.name.size() <= 200;
+    }
+
+    function isValidAccount(data) {
+      return data.id is string &&
+             data.email is string &&
+             data.role is string;
+    }
+
+    function isValidAccessRequest(data) {
+      return data.id is string &&
+             data.fullName is string &&
+             data.email is string;
+    }
+
+    // Institutions
+    match /institutions/{institutionId} {
+      allow read: if true;
+      allow create, update: if isValidId(institutionId) && isValidInstitution(request.resource.data);
+      allow delete: if isValidId(institutionId);
+    }
+
+    // Courses
+    match /courses/{courseId} {
+      allow read: if true;
+      allow create, update: if isValidId(courseId) && isValidCourse(request.resource.data);
+      allow delete: if isValidId(courseId);
+    }
+
+    // Students
+    match /students/{studentId} {
+      allow read: if true;
+      allow create, update: if isValidId(studentId) && isValidStudent(request.resource.data);
+      allow delete: if isValidId(studentId);
+    }
+
+    // Expenses
+    match /expenses/{expenseId} {
+      allow read: if true;
+      allow create, update: if isValidId(expenseId) && isValidExpense(request.resource.data);
+      allow delete: if isValidId(expenseId);
+    }
+
+    // User Accounts
+    match /accounts/{accountId} {
+      allow read: if true;
+      allow create, update: if isValidId(accountId) && isValidAccount(request.resource.data);
+      allow delete: if isValidId(accountId);
+    }
+
+    // Access Requests
+    match /accessRequests/{requestId} {
+      allow read: if true;
+      allow create, update: if isValidId(requestId) && isValidAccessRequest(request.resource.data);
+      allow delete: if isValidId(requestId);
+    }
+
+    // Test connection doc
+    match /_test_connection/{docId} {
+      allow read, write: if true;
+    }
+  }
+}
