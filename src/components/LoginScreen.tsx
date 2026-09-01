@@ -29,8 +29,6 @@ import { useApp } from '../context/AppContext';
 import { UserAccount, UserRole } from '../types';
 import { AccessRequestModal } from './AccessRequestModal';
 import { AppBenefitsSection } from './AppBenefitsSection';
-import { DidacticUseCasesShowcase } from './DidacticUseCasesShowcase';
-import { FloatingWhatsAppButton } from './FloatingWhatsAppButton';
 import { PasswordRecoveryModal } from './PasswordRecoveryModal';
 
 export const LoginScreen: React.FC = () => {
@@ -96,11 +94,11 @@ export const LoginScreen: React.FC = () => {
                   Cuotin
                 </span>
                 <span className="bg-blue-500/20 text-blue-300 text-[10px] uppercase font-semibold px-2 py-0.5 rounded border border-blue-400/30">
-                  Tesorería Digital Institucional
+                  Gestión de Cuotas y Tesorería Escolar
                 </span>
               </div>
               <p className="text-xs text-slate-400 hidden sm:block">
-                Tesorería digital para instituciones, colegios, cursos y organizaciones
+                Plataforma de rendición de cuentas y gestión financiera escolar
               </p>
             </div>
           </div>
@@ -507,11 +505,6 @@ export const LoginScreen: React.FC = () => {
           </div>
         </div>
 
-        {/* 🌟 8 Institutional Use Cases Didactic Showcase */}
-        <div className="w-full max-w-5xl">
-          <DidacticUseCasesShowcase onOpenAccessRequest={() => setShowAccessRequestModal(true)} />
-        </div>
-
         {/* 🌟 Dedicated Illustrated Benefits Section near Login */}
         <AppBenefitsSection onOpenAccessRequest={() => setShowAccessRequestModal(true)} />
       </main>
@@ -673,12 +666,6 @@ export const LoginScreen: React.FC = () => {
           </div>
         </div>
       </footer>
-
-      {/* 🟢 Floating WhatsApp Contact Button */}
-      <FloatingWhatsAppButton
-        phoneNumber="56942788044"
-        defaultMessage="¡Hola! Me gustaría solicitar información o activar una cuenta de tesorería digital en Cuotin."
-      />
     </div>
   );
 };
